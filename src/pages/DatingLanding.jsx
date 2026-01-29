@@ -44,12 +44,12 @@ export default function DatingLanding() {
             description: "Connect your Gmail and LinkedIn to prove you're a real person with a history."
         },
         {
-            title: "Get Your Pawn Pass",
-            description: "Receive a cryptographic Pawn Pass that proves you're not a catfish or bot."
+            title: "Deploy Your Rank Guard",
+            description: "Receive a cryptographic Rank Guard that proves you're not a catfish or bot."
         },
         {
             title: "Match with Real Humans",
-            description: "Display your Pawn Pass on Tinder, Hinge, Bumble. Filter for verified users only."
+            description: "Display your Rank Guard on Tinder, Hinge, Bumble. Filter for verified users only."
         }
     ];
 
@@ -93,8 +93,8 @@ export default function DatingLanding() {
                         transition={{ delay: 0.1 }}
                         className="text-4xl md:text-6xl font-bold text-rose-950 mb-6"
                     >
-                        Real Humans vs.{' '}
-                        <span className="text-rose-500">Catfish & Bots</span>
+                        Verified{' '}
+                        <span className="text-rose-500">Hearts</span>
                     </motion.h1>
 
                     <motion.p
@@ -103,8 +103,8 @@ export default function DatingLanding() {
                         transition={{ delay: 0.2 }}
                         className="text-xl text-rose-800 mb-10 max-w-2xl mx-auto"
                     >
-                        Swiping through fake profiles and bots on dating apps?
-                        <span className="font-bold"> En Passant verifies you're a real person. Match with real humans.</span>
+                        Date real people, not bots or catfish.
+                        <span className="font-bold"> Every profile backed by cryptographic proof.</span>
                     </motion.p>
 
                     {/* Countdown Timer */}

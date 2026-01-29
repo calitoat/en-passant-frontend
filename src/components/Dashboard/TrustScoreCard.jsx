@@ -18,20 +18,20 @@ export default function TrustScoreCard({ score, breakdown, loading }) {
         );
     }
 
-    // Simple scoring breakdown
+    // Simple scoring breakdown (100-point system)
     const scoreItems = [
         {
             key: 'base',
             label: 'En Passant Account',
-            points: 30,
-            earned: breakdown?.base?.score || 30,
+            points: 20,
+            earned: breakdown?.base?.score || 20,
             icon: User,
             color: 'text-primary-400'
         },
         {
             key: 'gmail',
             label: 'Gmail Connected',
-            points: 30,
+            points: 25,
             earned: breakdown?.gmail?.score || 0,
             icon: Mail,
             color: 'text-red-400'
@@ -39,7 +39,7 @@ export default function TrustScoreCard({ score, breakdown, loading }) {
         {
             key: 'linkedin',
             label: 'LinkedIn Connected',
-            points: 40,
+            points: 30,
             earned: breakdown?.linkedin?.score || 0,
             icon: Linkedin,
             color: 'text-blue-400'
@@ -47,13 +47,23 @@ export default function TrustScoreCard({ score, breakdown, loading }) {
         {
             key: 'edu_bonus',
             label: '.edu Email Verified',
-            points: 15,
+            points: 25,
             earned: breakdown?.edu_bonus?.score || 0,
             icon: GraduationCap,
             color: 'text-emerald-400',
             isBonus: true
         },
     ];
+
+    // Clearance level based on score
+    const getClearance = (s) => {
+        if (s >= 100) return { level: 4, title: 'Grandmaster', color: 'text-yellow-400', bg: 'bg-yellow-500/20' };
+        if (s >= 75) return { level: 3, title: 'Master', color: 'text-emerald-400', bg: 'bg-emerald-500/20' };
+        if (s >= 50) return { level: 2, title: 'Player', color: 'text-blue-400', bg: 'bg-blue-500/20' };
+        return { level: 1, title: 'Spectator', color: 'text-gray-400', bg: 'bg-gray-500/20' };
+    };
+
+    const clearance = getClearance(score || 0);
 
     const getScoreColor = (score) => {
         if (score >= 100) return 'text-green-400';
@@ -76,7 +86,10 @@ export default function TrustScoreCard({ score, breakdown, loading }) {
                     <div className={`text-6xl font-bold ${getScoreColor(score || 0)}`}>
                         {score || 0}
                     </div>
-                    <p className="text-slate-400 mt-1 text-sm">out of 115</p>
+                    <p className="text-slate-400 mt-1 text-sm">out of 100</p>
+                    <div className={`mt-2 px-3 py-1 rounded-full ${clearance.bg} ${clearance.color} text-xs font-semibold inline-block`}>
+                        {clearance.title}
+                    </div>
                 </div>
 
                 {/* Breakdown checklist */}
@@ -119,12 +132,12 @@ export default function TrustScoreCard({ score, breakdown, loading }) {
             </div>
 
             {/* Call to action if score is not maxed */}
-            {(score || 0) < 115 && (
+            {(score || 0) < 100 && (
                 <div className="mt-6 pt-6 border-t border-white/10">
                     <p className="text-sm text-slate-400">
-                        {(score || 0) >= 100
-                            ? 'Connect a .edu email to earn bonus points!'
-                            : 'Connect more accounts to increase your EP Score and unlock better Pawn Passes.'}
+                        {(score || 0) >= 75
+                            ? 'Connect a .edu email to reach Grandmaster status!'
+                            : 'Connect more accounts to increase your EP Score and unlock higher clearance levels.'}
                     </p>
                 </div>
             )}

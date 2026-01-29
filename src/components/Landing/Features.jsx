@@ -1,14 +1,6 @@
 import { motion } from 'framer-motion';
 import { Shield, BarChart3, Zap, Bot, UserCheck } from 'lucide-react';
-
-// Chess pawn icon
-function PawnIcon({ className }) {
-    return (
-        <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
-            <path d="M12 2C10.34 2 9 3.34 9 5C9 6.04 9.5 6.94 10.25 7.5C9.5 8.11 9 8.97 9 9.97C9 10.5 9.13 11 9.37 11.44C7.97 12.5 7 14.12 7 16H17C17 14.12 16.03 12.5 14.63 11.44C14.87 11 15 10.5 15 9.97C15 8.97 14.5 8.11 13.75 7.5C14.5 6.94 15 6.04 15 5C15 3.34 13.66 2 12 2ZM6 18V19H18V18H6ZM5 20V22H19V20H5Z"/>
-        </svg>
-    );
-}
+import RookIcon from '../icons/RookIcon';
 
 const features = [
     {
@@ -19,7 +11,7 @@ const features = [
     {
         icon: Bot,
         title: 'Agent Authorization',
-        description: 'Generate Pawn Passes for your AI agents. Cryptographically signed credentials that prove they\'re operating on your behalf.',
+        description: 'Deploy Rank Guards for your AI agents. Cryptographically signed credentials that prove they\'re operating on your behalf.',
     },
     {
         icon: Shield,
@@ -40,7 +32,7 @@ export default function Features() {
                     className="text-center mb-16"
                 >
                     <div className="inline-flex items-center gap-2 mb-4">
-                        <PawnIcon className="w-6 h-6 text-primary-400" />
+                        <RookIcon className="w-6 h-6 text-primary-400" />
                     </div>
                     <h2 className="text-3xl md:text-4xl font-bold text-cream-300 mb-4">
                         How En Passant Works
@@ -87,19 +79,19 @@ export default function Features() {
                 >
                     <div className="inline-flex items-center gap-4 px-6 py-3 bg-primary-500/10 border border-primary-500/30 rounded-full">
                         <span className="text-cream-400">EP Score: </span>
-                        <span className="text-primary-400 font-bold">30</span>
+                        <span className="text-primary-400 font-bold">20</span>
                         <span className="text-cream-600">base</span>
                         <span className="text-cream-600">+</span>
-                        <span className="text-primary-400 font-bold">30</span>
+                        <span className="text-primary-400 font-bold">25</span>
                         <span className="text-cream-600">Gmail</span>
                         <span className="text-cream-600">+</span>
-                        <span className="text-primary-400 font-bold">40</span>
+                        <span className="text-primary-400 font-bold">30</span>
                         <span className="text-cream-600">LinkedIn</span>
                         <span className="text-cream-600">+</span>
-                        <span className="text-primary-400 font-bold">15</span>
+                        <span className="text-primary-400 font-bold">25</span>
                         <span className="text-cream-600">.edu</span>
                         <span className="text-cream-600">=</span>
-                        <span className="text-chess-green font-bold text-lg">115</span>
+                        <span className="text-chess-green font-bold text-lg">100</span>
                     </div>
                 </motion.div>
             </div>

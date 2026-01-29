@@ -16,6 +16,7 @@ import DatingLanding from './pages/DatingLanding';
 import TicketsLanding from './pages/TicketsLanding';
 import AgentsLanding from './pages/AgentsLanding';
 import VerticalsHub from './pages/VerticalsHub';
+import VerifyPage from './pages/VerifyPage';
 
 // Protected route wrapper
 function ProtectedRoute({ children }) {
@@ -111,6 +112,9 @@ export default function App() {
                 {/* Legal pages */}
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/terms" element={<Terms />} />
+
+                {/* Public verification */}
+                <Route path="/verify/:username" element={<VerifyPage />} />
 
                 {/* Protected routes */}
                 <Route

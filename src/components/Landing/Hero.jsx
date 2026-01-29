@@ -2,15 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Crown } from 'lucide-react';
 import { Button } from '../ui';
-
-// Chess pawn SVG component
-function PawnIcon({ className }) {
-    return (
-        <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
-            <path d="M12 2C10.34 2 9 3.34 9 5C9 6.04 9.5 6.94 10.25 7.5C9.5 8.11 9 8.97 9 9.97C9 10.5 9.13 11 9.37 11.44C7.97 12.5 7 14.12 7 16H17C17 14.12 16.03 12.5 14.63 11.44C14.87 11 15 10.5 15 9.97C15 8.97 14.5 8.11 13.75 7.5C14.5 6.94 15 6.04 15 5C15 3.34 13.66 2 12 2ZM6 18V19H18V18H6ZM5 20V22H19V20H5Z"/>
-        </svg>
-    );
-}
+import RookIcon from '../icons/RookIcon';
 
 export default function Hero() {
     return (
@@ -57,7 +49,7 @@ export default function Hero() {
                     transition={{ duration: 0.5 }}
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/40 mb-8"
                 >
-                    <PawnIcon className="w-4 h-4 text-primary-400" />
+                    <RookIcon className="w-4 h-4 text-primary-400" />
                     <span className="text-sm text-primary-300 font-medium">The move they didn't see coming</span>
                 </motion.div>
 
@@ -111,7 +103,7 @@ export default function Hero() {
                     className="mt-16 flex flex-wrap items-center justify-center gap-8 text-cream-600"
                 >
                     <div className="flex items-center gap-2">
-                        <PawnIcon className="w-4 h-4 text-primary-500" />
+                        <RookIcon className="w-4 h-4 text-primary-500" />
                         <span className="text-sm">Human Verified</span>
                     </div>
                     <div className="flex items-center gap-2">

@@ -44,12 +44,12 @@ export default function FreelanceLanding() {
             description: "Connect Gmail, LinkedIn, and optionally your .edu email for maximum credibility."
         },
         {
-            title: "Display Your Pawn Pass",
+            title: "Deploy Your Rank Guard",
             description: "Add En Passant verification to your Upwork, Fiverr, or freelance profiles."
         },
         {
             title: "Charge What You're Worth",
-            description: "Verified Pawn Pass = higher trust = better rates. Stop competing on price alone."
+            description: "Verified Rank Guard = higher trust = better rates. Stop competing on price alone."
         }
     ];
 
@@ -93,8 +93,8 @@ export default function FreelanceLanding() {
                         transition={{ delay: 0.1 }}
                         className="text-4xl md:text-6xl font-bold text-orange-950 mb-6"
                     >
-                        Real Professionals vs.{' '}
-                        <span className="text-orange-600">Fake Profiles</span>
+                        Verified{' '}
+                        <span className="text-orange-600">Professionals</span>
                     </motion.h1>
 
                     <motion.p
@@ -103,8 +103,8 @@ export default function FreelanceLanding() {
                         transition={{ delay: 0.2 }}
                         className="text-xl text-orange-800 mb-10 max-w-2xl mx-auto"
                     >
-                        Clients are drowning in fake freelancer profiles and AI portfolios.
-                        <span className="font-bold"> Prove you're a real professional. Win more bids.</span>
+                        Clients can't tell real freelancers from fake profiles.
+                        <span className="font-bold"> Prove you're legitimate. Win more bids.</span>
                     </motion.p>
 
                     {/* Countdown Timer */}

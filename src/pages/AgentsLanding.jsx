@@ -5,15 +5,7 @@ import { Bot, Shield, Code, Key, Cpu, ArrowRight, Terminal, Zap } from 'lucide-r
 import CountdownTimer from '../components/CountdownTimer';
 import BotDefenseSignal from '../components/BotDefenseSignal';
 import EnlistForm from '../components/EnlistForm';
-
-// Chess pawn icon
-function PawnIcon({ className }) {
-    return (
-        <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
-            <path d="M12 2C10.34 2 9 3.34 9 5C9 6.04 9.5 6.94 10.25 7.5C9.5 8.11 9 8.97 9 9.97C9 10.5 9.13 11 9.37 11.44C7.97 12.5 7 14.12 7 16H17C17 14.12 16.03 12.5 14.63 11.44C14.87 11 15 10.5 15 9.97C15 8.97 14.5 8.11 13.75 7.5C14.5 6.94 15 6.04 15 5C15 3.34 13.66 2 12 2ZM6 18V19H18V18H6ZM5 20V22H19V20H5Z"/>
-        </svg>
-    );
-}
+import RookIcon from '../components/icons/RookIcon';
 
 export default function AgentsLanding() {
     const navigate = useNavigate();
@@ -32,8 +24,8 @@ export default function AgentsLanding() {
     const features = [
         {
             icon: Key,
-            title: "Agent Passes",
-            description: "Generate cryptographically signed credentials that prove your AI agent is operating on behalf of a verified human."
+            title: "Agent Rank Guards",
+            description: "Deploy cryptographically signed credentials that prove your AI agent is operating on behalf of a verified human."
         },
         {
             icon: Shield,
@@ -67,15 +59,15 @@ import { EnPassant } from '@enpassant/sdk';
 
 const ep = new EnPassant({ apiKey: 'ep_...' });
 
-// Generate an Agent Pass
-const agentPass = await ep.generateAgentPass({
+// Deploy an Agent Rank Guard
+const rankGuard = await ep.deployRankGuard({
   agent: 'claude-3',
   scope: ['email', 'calendar'],
   expiresIn: '24h'
 });
 
 // Attach to agent requests
-agent.setCredentials(agentPass.token);`;
+agent.setCredentials(rankGuard.token);`;
 
     return (
         <div className="min-h-screen bg-chess-black">
@@ -96,7 +88,7 @@ agent.setCredentials(agentPass.token);`;
                 <div className="max-w-6xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
                     <Link to="/" className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-xl bg-primary-500 flex items-center justify-center">
-                            <PawnIcon className="w-6 h-6 text-chess-black" />
+                            <RookIcon className="w-6 h-6 text-chess-black" />
                         </div>
                         <span className="text-xl font-bold text-cream-300">En Passant</span>
                     </Link>
@@ -174,7 +166,7 @@ agent.setCredentials(agentPass.token);`;
                             vertical="agents"
                             source={source}
                             ctaText="GET AGENT API ACCESS"
-                            subtitle="Early access to Agent Pass SDK for developers"
+                            subtitle="Early access to Rank Guard SDK for developers"
                             theme="dark"
                         />
                     </motion.div>

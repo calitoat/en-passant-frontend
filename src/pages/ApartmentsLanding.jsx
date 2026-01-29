@@ -44,12 +44,12 @@ export default function ApartmentsLanding() {
             description: "Link Gmail, LinkedIn, and optionally your .edu email to build trust."
         },
         {
-            title: "Get Your Pawn Pass",
-            description: "Receive a cryptographic Pawn Pass that proves you're a real human with a verifiable identity."
+            title: "Deploy Your Rank Guard",
+            description: "Receive a cryptographic Rank Guard that proves you're a real human with a verifiable identity."
         },
         {
             title: "Landlords See You First",
-            description: "Your verified Pawn Pass displays on Zillow, Craigslist, and rental platforms."
+            description: "Your verified Rank Guard displays on Zillow, Craigslist, and rental platforms."
         }
     ];
 
@@ -93,8 +93,8 @@ export default function ApartmentsLanding() {
                         transition={{ delay: 0.1 }}
                         className="text-4xl md:text-6xl font-bold text-emerald-950 mb-6"
                     >
-                        Real Humans vs.{' '}
-                        <span className="text-emerald-600">Fake Applicants</span>
+                        Verified Renters{' '}
+                        <span className="text-emerald-600">Only</span>
                     </motion.h1>
 
                     <motion.p
@@ -103,8 +103,8 @@ export default function ApartmentsLanding() {
                         transition={{ delay: 0.2 }}
                         className="text-xl text-emerald-800 mb-10 max-w-2xl mx-auto"
                     >
-                        Landlords are drowning in AI-generated rental applications.
-                        <span className="font-bold"> Prove you're a real person. Get the apartment.</span>
+                        Stand out to landlords drowning in bot-generated applications.
+                        <span className="font-bold"> Prove you're real. Get the apartment.</span>
                     </motion.p>
 
                     {/* Countdown Timer */}

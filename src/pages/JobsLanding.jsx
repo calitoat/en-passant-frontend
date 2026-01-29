@@ -44,12 +44,12 @@ export default function JobsLanding() {
             description: "Connect Gmail, LinkedIn, and .edu email to prove your professional history."
         },
         {
-            title: "Get Your Pawn Pass",
-            description: "Receive a cryptographic Pawn Pass that proves you're a real human professional."
+            title: "Deploy Your Rank Guard",
+            description: "Receive a cryptographic Rank Guard that proves you're a real human professional."
         },
         {
             title: "Recruiters Notice You",
-            description: "Your verified Pawn Pass displays on LinkedIn, job boards, and applications."
+            description: "Your verified Rank Guard displays on LinkedIn, job boards, and applications."
         }
     ];
 
@@ -93,8 +93,8 @@ export default function JobsLanding() {
                         transition={{ delay: 0.1 }}
                         className="text-4xl md:text-6xl font-bold text-slate-900 mb-6"
                     >
-                        Real Talent vs.{' '}
-                        <span className="text-indigo-600">AI Resume Spam</span>
+                        Human Applicants{' '}
+                        <span className="text-indigo-600">Only</span>
                     </motion.h1>
 
                     <motion.p
@@ -103,8 +103,8 @@ export default function JobsLanding() {
                         transition={{ delay: 0.2 }}
                         className="text-xl text-slate-700 mb-10 max-w-2xl mx-auto"
                     >
-                        Your application gets lost in a flood of AI-generated resumes.
-                        <span className="font-bold"> Prove you're a real human. Get the interview.</span>
+                        Recruiters are drowning in AI-generated applications.
+                        <span className="font-bold"> Prove there's a real person behind yours.</span>
                     </motion.p>
 
                     {/* Countdown Timer */}
