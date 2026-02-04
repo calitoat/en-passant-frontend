@@ -54,10 +54,10 @@ async function request(endpoint, options = {}) {
 
 // Auth endpoints
 export const auth = {
-    register: (email, password) =>
+    register: (email, password, inviteCode = null) =>
         request('/api/auth/register', {
             method: 'POST',
-            body: { email, password },
+            body: { email, password, ...(inviteCode && { inviteCode }) },
         }),
 
     login: (email, password) =>
@@ -137,11 +137,124 @@ export const badges = {
 // Health check
 export const health = () => request('/api/health');
 
+// Receipts endpoints
+export const receipts = {
+    upload: (formData) =>
+        fetch(`${API_URL}/api/receipts/upload`, {
+            method: 'POST',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+            body: formData,
+        }).then(async (res) => {
+            const data = await res.json();
+            if (!res.ok) throw new ApiError(data.message || 'Upload failed', res.status, data);
+            return data;
+        }),
+
+    get: (id) => request(`/api/receipts/${id}`),
+
+    verify: (id) =>
+        request(`/api/receipts/${id}/verify`, {
+            method: 'POST',
+        }),
+
+    list: () => request('/api/receipts'),
+};
+
+// Listings endpoints
+export const listings = {
+    create: (data) =>
+        request('/api/listings', {
+            method: 'POST',
+            body: data,
+        }),
+
+    list: (filters = {}) => {
+        const params = new URLSearchParams();
+        if (filters.eventId) params.set('eventId', filters.eventId);
+        if (filters.section) params.set('section', filters.section);
+        if (filters.minPrice) params.set('minPrice', filters.minPrice);
+        if (filters.maxPrice) params.set('maxPrice', filters.maxPrice);
+        if (filters.verifiedOnly !== undefined) params.set('verifiedOnly', filters.verifiedOnly);
+        if (filters.limit) params.set('limit', filters.limit);
+        if (filters.offset) params.set('offset', filters.offset);
+        if (filters.sortBy) params.set('sortBy', filters.sortBy);
+        if (filters.sortOrder) params.set('sortOrder', filters.sortOrder);
+        const query = params.toString();
+        return request(`/api/listings${query ? `?${query}` : ''}`);
+    },
+
+    get: (id) => request(`/api/listings/${id}`),
+
+    my: () => request('/api/listings/my'),
+
+    update: (id, data) =>
+        request(`/api/listings/${id}`, {
+            method: 'PUT',
+            body: data,
+        }),
+
+    flag: (id, reason, description) =>
+        request(`/api/listings/${id}/flag`, {
+            method: 'POST',
+            body: { reason, description },
+        }),
+
+    markAsSold: (id) =>
+        request(`/api/listings/${id}/sold`, {
+            method: 'POST',
+        }),
+};
+
+// Events endpoints
+export const events = {
+    list: (filters = {}) => {
+        const params = new URLSearchParams();
+        if (filters.category) params.set('category', filters.category);
+        if (filters.upcoming !== undefined) params.set('upcoming', filters.upcoming);
+        if (filters.limit) params.set('limit', filters.limit);
+        if (filters.offset) params.set('offset', filters.offset);
+        const query = params.toString();
+        return request(`/api/events${query ? `?${query}` : ''}`);
+    },
+
+    get: (id) => request(`/api/events/${id}`),
+
+    search: (query, limit = 10) =>
+        request(`/api/events/search?q=${encodeURIComponent(query)}&limit=${limit}`),
+
+    getCeilings: (id) => request(`/api/events/${id}/ceilings`),
+};
+
+// Invites endpoints
+export const invites = {
+    validate: (code) =>
+        request('/api/invites/validate', {
+            method: 'POST',
+            body: { code },
+        }),
+
+    redeem: (code) =>
+        request('/api/invites/redeem', {
+            method: 'POST',
+            body: { code },
+        }),
+
+    getMyCodes: () => request('/api/invites/my-codes'),
+
+    getBetaStatus: () => request('/api/invites/beta-status'),
+};
+
 export default {
     auth,
     user,
     identity,
     badges,
     health,
+    receipts,
+    listings,
+    events,
+    invites,
     ApiError,
 };

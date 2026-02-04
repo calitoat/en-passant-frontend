@@ -17,6 +17,7 @@ const useAuthStore = create(
             isAuthenticated: false,
             isLoading: false,
             error: null,
+            betaAccess: null, // { hasBetaAccess, invitesRemaining, inviteCodes }
 
             // Actions
             setUser: (user) => set({ user, isAuthenticated: !!user }),
@@ -37,16 +38,17 @@ const useAuthStore = create(
             clearError: () => set({ error: null }),
 
             // Auth actions
-            register: async (email, password) => {
+            register: async (email, password, inviteCode = null) => {
                 set({ isLoading: true, error: null });
                 try {
-                    const data = await api.auth.register(email, password);
+                    const data = await api.auth.register(email, password, inviteCode);
                     localStorage.setItem('token', data.token);
                     set({
                         user: data.user,
                         token: data.token,
                         isAuthenticated: true,
                         isLoading: false,
+                        betaAccess: data.betaAccess || null,
                     });
                     return data;
                 } catch (err) {
@@ -139,6 +141,35 @@ const useAuthStore = create(
                     return data;
                 } catch (err) {
                     console.error('Failed to refresh user data:', err);
+                    throw err;
+                }
+            },
+
+            // Beta access actions
+            fetchBetaStatus: async () => {
+                try {
+                    const data = await api.invites.getBetaStatus();
+                    set({ betaAccess: data });
+                    return data;
+                } catch (err) {
+                    console.error('Failed to fetch beta status:', err);
+                    return null;
+                }
+            },
+
+            redeemInviteCode: async (code) => {
+                try {
+                    const data = await api.invites.redeem(code);
+                    if (data.success) {
+                        set({
+                            betaAccess: {
+                                hasBetaAccess: true,
+                                inviteCodes: data.inviteCodes,
+                            },
+                        });
+                    }
+                    return data;
+                } catch (err) {
                     throw err;
                 }
             },

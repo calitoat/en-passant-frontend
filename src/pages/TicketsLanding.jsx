@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
-import { Shield, ArrowRight, Check, Ticket, Users, Ban, Sparkles } from 'lucide-react';
+import { Shield, ArrowRight, Check, Ticket, Users, Ban, Sparkles, DollarSign } from 'lucide-react';
 import CountdownTimer from '../components/CountdownTimer';
 import BotDefenseSignal from '../components/BotDefenseSignal';
 import EnlistForm from '../components/EnlistForm';
+import { PriceComparisonGraphic, PriceCapExplainer } from '../components/tickets';
 
 export default function TicketsLanding() {
     const navigate = useNavigate();
@@ -84,6 +85,11 @@ export default function TicketsLanding() {
                         <span className="text-xl font-black text-black tracking-tight">En Passant</span>
                     </Link>
                     <div className="flex items-center gap-4">
+                        <Link to="/tickets/browse" className="hidden md:block">
+                            <button className="px-4 py-2 font-bold text-black hover:text-pink-500 transition-colors">
+                                Browse Tickets
+                            </button>
+                        </Link>
                         <Link to="/login" className="hidden md:block">
                             <button className="px-4 py-2 font-bold text-black hover:text-pink-500 transition-colors">
                                 Sign In
@@ -222,8 +228,46 @@ export default function TicketsLanding() {
                 </div>
             </section>
 
-            {/* Pain Points */}
+            {/* Face Value Hero */}
             <section className="py-16 md:py-20 px-4 md:px-6 bg-white border-y-4 border-black">
+                <div className="max-w-6xl mx-auto">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-center mb-12"
+                    >
+                        <div
+                            className="inline-block px-6 py-3 bg-green-500 border-4 border-black mb-6"
+                            style={{ boxShadow: '4px 4px 0px #000', transform: 'rotate(-1deg)' }}
+                        >
+                            <span className="text-2xl font-black text-white flex items-center gap-2">
+                                <DollarSign className="w-6 h-6" />
+                                FACE VALUE. PERIOD.
+                            </span>
+                        </div>
+                        <h2
+                            className="text-3xl md:text-5xl font-black text-black mb-4"
+                            style={{ textShadow: '3px 3px 0px #22C55E' }}
+                        >
+                            NO SCALPER MARKUPS
+                        </h2>
+                        <p className="text-xl text-black/70 max-w-2xl mx-auto">
+                            Every ticket on En Passant is capped at face value.
+                            We verify receipts and enforce price caps so real fans pay fair prices.
+                        </p>
+                    </motion.div>
+
+                    <PriceComparisonGraphic
+                        competitorName="StubHub"
+                        competitorPrice={6500}
+                        enPassantPrice={1200}
+                    />
+                </div>
+            </section>
+
+            {/* Pain Points */}
+            <section className="py-16 md:py-20 px-4 md:px-6 bg-yellow-300 border-y-4 border-black">
                 <div className="max-w-6xl mx-auto">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
@@ -252,7 +296,7 @@ export default function TicketsLanding() {
                                 whileInView={{ opacity: 1, y: 0, rotate: i % 2 === 0 ? -1 : 1 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.1 * i }}
-                                className="p-6 bg-yellow-300 border-4 border-black"
+                                className="p-6 bg-white border-4 border-black"
                                 style={{ boxShadow: '6px 6px 0px #000' }}
                             >
                                 <div className="text-5xl mb-4">{point.icon}</div>
@@ -261,6 +305,13 @@ export default function TicketsLanding() {
                             </motion.div>
                         ))}
                     </div>
+                </div>
+            </section>
+
+            {/* How Face Value Works */}
+            <section className="py-16 md:py-20 px-4 md:px-6 bg-white border-b-4 border-black">
+                <div className="max-w-6xl mx-auto">
+                    <PriceCapExplainer showFAQ={true} />
                 </div>
             </section>
 

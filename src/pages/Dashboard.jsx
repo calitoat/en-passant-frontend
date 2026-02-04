@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Plus, LogOut, LayoutGrid, Bot } from 'lucide-react';
+import { Plus, LogOut, LayoutGrid, Bot, Ticket, ExternalLink } from 'lucide-react';
 import { toast } from 'sonner';
 import { Button } from '../components/ui';
 import TrustScoreCard from '../components/Dashboard/TrustScoreCard';
 import AccountCard from '../components/Dashboard/AccountCard';
 import RankGuardList from '../components/Dashboard/RankGuardList';
 import GenerateRankGuardModal from '../components/Dashboard/GenerateRankGuardModal';
+import InviteCodes from '../components/Dashboard/InviteCodes';
 import RookIcon from '../components/icons/RookIcon';
+import { FaceValueBadge } from '../components/tickets';
 import useAuthStore from '../store/useAuthStore';
 import api from '../lib/api';
 
@@ -21,6 +23,7 @@ export default function Dashboard() {
     const [scoreData, setScoreData] = useState(null);
     const [anchors, setAnchors] = useState([]);
     const [badges, setBadges] = useState([]);
+    const [listings, setListings] = useState([]);
     const [showGenerateModal, setShowGenerateModal] = useState(false);
 
     // Check for OAuth callback
@@ -57,14 +60,16 @@ export default function Dashboard() {
     const fetchData = async () => {
         setLoading(true);
         try {
-            const [scoreRes, anchorsRes, badgesRes] = await Promise.all([
+            const [scoreRes, anchorsRes, badgesRes, listingsRes] = await Promise.all([
                 api.user.getScore(),
                 api.identity.getAnchors(),
                 api.badges.list(),
+                api.listings.my().catch(() => ({ listings: [] })),
             ]);
             setScoreData(scoreRes);
             setAnchors(anchorsRes.anchors || []);
             setBadges(badgesRes.badges || []);
+            setListings(listingsRes.listings || []);
         } catch (err) {
             toast.error('Failed to load dashboard data');
         } finally {
@@ -161,6 +166,9 @@ export default function Dashboard() {
                         loading={loading}
                     />
 
+                    {/* Invite Codes (Beta) */}
+                    <InviteCodes />
+
                     {/* Connected Accounts */}
                     <div>
                         <h2 className="text-lg font-semibold text-cream-300 mb-4">Connected Accounts</h2>
@@ -198,6 +206,76 @@ export default function Dashboard() {
                             onRevoke={handleRevokeBadge}
                             loading={loading}
                         />
+                    </div>
+
+                    {/* My Ticket Listings */}
+                    <div>
+                        <div className="flex items-center justify-between mb-4">
+                            <h2 className="text-lg font-semibold text-cream-300">My Ticket Listings</h2>
+                            <Link to="/tickets/create">
+                                <Button className="bg-pink-500 hover:bg-pink-600 text-white">
+                                    <Ticket className="w-4 h-4 mr-2" />
+                                    Sell Tickets
+                                </Button>
+                            </Link>
+                        </div>
+                        {loading ? (
+                            <div className="bg-surface-500/50 backdrop-blur-md border border-white/10 rounded-xl p-8 flex justify-center">
+                                <div className="w-8 h-8 border-2 border-pink-500 border-t-transparent rounded-full animate-spin" />
+                            </div>
+                        ) : listings.length === 0 ? (
+                            <div className="bg-surface-500/50 backdrop-blur-md border border-white/10 rounded-xl p-8 text-center">
+                                <Ticket className="w-10 h-10 mx-auto text-cream-600 mb-3" />
+                                <p className="text-cream-400 mb-4">No ticket listings yet</p>
+                                <Link to="/tickets/create">
+                                    <Button size="sm" className="bg-pink-500 hover:bg-pink-600 text-white">
+                                        List Your First Tickets
+                                    </Button>
+                                </Link>
+                            </div>
+                        ) : (
+                            <div className="space-y-3">
+                                {listings.map((listing) => (
+                                    <Link
+                                        key={listing.id}
+                                        to={`/tickets/listing/${listing.id}`}
+                                        className="block bg-surface-500/50 backdrop-blur-md border border-white/10 rounded-xl p-4 hover:border-pink-500/50 transition-colors"
+                                    >
+                                        <div className="flex items-center justify-between">
+                                            <div className="flex-1 min-w-0">
+                                                <h3 className="font-medium text-cream-300 truncate">
+                                                    {listing.eventName}
+                                                </h3>
+                                                <p className="text-sm text-cream-600 mt-1">
+                                                    {listing.section} • {listing.quantity} ticket{listing.quantity > 1 ? 's' : ''}
+                                                </p>
+                                            </div>
+                                            <div className="flex items-center gap-4">
+                                                <FaceValueBadge
+                                                    status={listing.verificationStatus}
+                                                    size="sm"
+                                                    showPrice={false}
+                                                    animated={false}
+                                                />
+                                                <div className="text-right">
+                                                    <p className="text-lg font-bold text-cream-300">
+                                                        ${(listing.askingPriceCents / 100).toLocaleString()}
+                                                    </p>
+                                                    <p className="text-xs text-cream-600">per ticket</p>
+                                                </div>
+                                                <ExternalLink className="w-4 h-4 text-cream-600" />
+                                            </div>
+                                        </div>
+                                    </Link>
+                                ))}
+                                <Link
+                                    to="/tickets/browse"
+                                    className="block text-center py-3 text-pink-400 hover:text-pink-300 text-sm font-medium"
+                                >
+                                    Browse all tickets →
+                                </Link>
+                            </div>
+                        )}
                     </div>
                 </motion.div>
             </main>

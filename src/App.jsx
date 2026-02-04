@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'sonner';
 import useAuthStore from './store/useAuthStore';
+import AccessGate from './components/AccessGate';
 import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -17,6 +18,10 @@ import TicketsLanding from './pages/TicketsLanding';
 import AgentsLanding from './pages/AgentsLanding';
 import VerticalsHub from './pages/VerticalsHub';
 import VerifyPage from './pages/VerifyPage';
+import BrowseListings from './pages/BrowseListings';
+import ListingDetail from './pages/ListingDetail';
+import CreateListing from './pages/CreateListing';
+import JoinPage from './pages/JoinPage';
 
 // Protected route wrapper
 function ProtectedRoute({ children }) {
@@ -78,65 +83,80 @@ export default function App() {
                 }}
             />
 
-            <Routes>
-                {/* Public routes */}
-                <Route path="/" element={<Landing />} />
-                <Route
-                    path="/login"
-                    element={
-                        <PublicRoute>
-                            <Login />
-                        </PublicRoute>
-                    }
-                />
-                <Route
-                    path="/register"
-                    element={
-                        <PublicRoute>
-                            <Register />
-                        </PublicRoute>
-                    }
-                />
+            <AccessGate>
+                <Routes>
+                    {/* Public routes */}
+                    <Route path="/" element={<Landing />} />
+                    <Route
+                        path="/login"
+                        element={
+                            <PublicRoute>
+                                <Login />
+                            </PublicRoute>
+                        }
+                    />
+                    <Route
+                        path="/register"
+                        element={
+                            <PublicRoute>
+                                <Register />
+                            </PublicRoute>
+                        }
+                    />
 
-                {/* Vertical landing pages */}
-                <Route path="/apartments" element={<ApartmentsLanding />} />
-                <Route path="/jobs" element={<JobsLanding />} />
-                <Route path="/freelance" element={<FreelanceLanding />} />
-                <Route path="/dating" element={<DatingLanding />} />
-                <Route path="/tickets" element={<TicketsLanding />} />
-                <Route path="/agents" element={<AgentsLanding />} />
+                    {/* Invite/Join page */}
+                    <Route path="/join" element={<JoinPage />} />
 
-                {/* Auth error route */}
-                <Route path="/auth/error" element={<AuthError />} />
+                    {/* Vertical landing pages */}
+                    <Route path="/apartments" element={<ApartmentsLanding />} />
+                    <Route path="/jobs" element={<JobsLanding />} />
+                    <Route path="/freelance" element={<FreelanceLanding />} />
+                    <Route path="/dating" element={<DatingLanding />} />
+                    <Route path="/tickets" element={<TicketsLanding />} />
+                    <Route path="/tickets/browse" element={<BrowseListings />} />
+                    <Route path="/tickets/listing/:id" element={<ListingDetail />} />
+                    <Route
+                        path="/tickets/create"
+                        element={
+                            <ProtectedRoute>
+                                <CreateListing />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route path="/agents" element={<AgentsLanding />} />
 
-                {/* Legal pages */}
-                <Route path="/privacy" element={<Privacy />} />
-                <Route path="/terms" element={<Terms />} />
+                    {/* Auth error route */}
+                    <Route path="/auth/error" element={<AuthError />} />
 
-                {/* Public verification */}
-                <Route path="/verify/:username" element={<VerifyPage />} />
+                    {/* Legal pages */}
+                    <Route path="/privacy" element={<Privacy />} />
+                    <Route path="/terms" element={<Terms />} />
 
-                {/* Protected routes */}
-                <Route
-                    path="/dashboard"
-                    element={
-                        <ProtectedRoute>
-                            <Dashboard />
-                        </ProtectedRoute>
-                    }
-                />
-                <Route
-                    path="/verticals"
-                    element={
-                        <ProtectedRoute>
-                            <VerticalsHub />
-                        </ProtectedRoute>
-                    }
-                />
+                    {/* Public verification */}
+                    <Route path="/verify/:username" element={<VerifyPage />} />
 
-                {/* Catch-all redirect */}
-                <Route path="*" element={<Navigate to="/" replace />} />
-            </Routes>
+                    {/* Protected routes */}
+                    <Route
+                        path="/dashboard"
+                        element={
+                            <ProtectedRoute>
+                                <Dashboard />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/verticals"
+                        element={
+                            <ProtectedRoute>
+                                <VerticalsHub />
+                            </ProtectedRoute>
+                        }
+                    />
+
+                    {/* Catch-all redirect */}
+                    <Route path="*" element={<Navigate to="/" replace />} />
+                </Routes>
+            </AccessGate>
         </BrowserRouter>
     );
 }
