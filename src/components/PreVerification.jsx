@@ -41,7 +41,7 @@ export default function PreVerification({
             name: 'Google',
             icon: GoogleIcon,
             points: 25,
-            url: `${apiUrl}/auth/google`,
+            url: `${apiUrl}/api/auth/google`,
             available: true,
             description: 'Verify your Gmail account'
         },
@@ -50,7 +50,7 @@ export default function PreVerification({
             name: 'LinkedIn',
             icon: LinkedInIcon,
             points: 30,
-            url: `${apiUrl}/auth/linkedin`,
+            url: `${apiUrl}/api/auth/linkedin`,
             available: true,
             description: 'Verify your professional identity'
         },
