@@ -1,13 +1,17 @@
 import Hero from '../components/Landing/Hero';
-import Features from '../components/Landing/Features';
-import Footer from '../components/Landing/Footer';
+import ProblemSection from '../components/Landing/ProblemSection';
+import HowItWorks from '../components/Landing/HowItWorks';
+import VerticalsPreview from '../components/Landing/VerticalsPreview';
+import FooterCTA from '../components/Landing/FooterCTA';
 
 export default function Landing() {
     return (
-        <div className="min-h-screen">
+        <div className="min-h-screen bg-dark-bg">
             <Hero />
-            <Features />
-            <Footer />
+            <ProblemSection />
+            <HowItWorks />
+            <VerticalsPreview />
+            <FooterCTA />
         </div>
     );
 }

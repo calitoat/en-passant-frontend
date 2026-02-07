@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { Shield, ArrowRight, Check, Ticket, Users, Ban, Sparkles, DollarSign } from 'lucide-react';
-import CountdownTimer from '../components/CountdownTimer';
-import BotDefenseSignal from '../components/BotDefenseSignal';
 import EnlistForm from '../components/EnlistForm';
 import { PriceComparisonGraphic, PriceCapExplainer } from '../components/tickets';
 
@@ -159,47 +157,21 @@ export default function TicketsLanding() {
                         <span className="font-black text-pink-500"> 2 ticket limit per event.</span>
                     </motion.p>
 
-                    {/* Countdown Timer */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.3 }}
-                        className="mb-8"
-                    >
-                        <CountdownTimer
-                            targetDate="2026-02-08T19:00:00-08:00"
-                            theme="dark"
-                            size="large"
-                        />
-                    </motion.div>
-
-                    {/* Bot Defense Signal */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.4 }}
-                        className="mb-8"
-                    >
-                        <BotDefenseSignal
-                            initialVerifiedHumans={stats.total}
-                            initialBotsBlocked={stats.total * 8}
-                            realtime={true}
-                        />
-                    </motion.div>
-
                     {/* Enlist Form */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.5 }}
+                        transition={{ duration: 0.5, delay: 0.3 }}
                         className="max-w-lg mx-auto"
                     >
                         <EnlistForm
                             vertical="tickets"
                             source={source}
                             ctaText="JOIN THE FAN QUEUE"
-                            subtitle="Get priority access when we launch Feb 8"
+                            subtitle="Get priority access when we launch"
                             theme="dark"
+                            showPreVerification={true}
+                            accentColor="#FF69B4"
                         />
                     </motion.div>
 
@@ -207,7 +179,7 @@ export default function TicketsLanding() {
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ duration: 0.5, delay: 0.6 }}
+                        transition={{ duration: 0.5, delay: 0.4 }}
                         className="mt-8 flex flex-wrap items-center justify-center gap-4"
                     >
                         {[
@@ -412,6 +384,8 @@ export default function TicketsLanding() {
                         ctaText="RESERVE MY SPOT"
                         subtitle="Launch day priority access"
                         theme="dark"
+                        showPreVerification={true}
+                        accentColor="#FF69B4"
                     />
                 </div>
             </section>

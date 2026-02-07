@@ -1,22 +1,33 @@
+/* Import fonts - must come before @tailwind directives */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Import Inter font */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+/* Satoshi from Fontshare (CDN) */
+@font-face {
+  font-family: 'Satoshi';
+  src: url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap');
+  font-weight: 400 900;
+  font-display: swap;
+}
 
 @layer base {
   :root {
-    --primary: #635BFF;
-    --primary-dark: #0A2540;
+    --primary: #D4A853;
+    --primary-dark: #b8960c;
     --success: #00D4AA;
     --warning: #FFC043;
     --danger: #DF1B41;
-    --bg: #0A0D14;
-    --surface: #1A1F2E;
-    --border: #2D3748;
+    --bg: #050505;
+    --surface: #0a0a0a;
+    --card: #111111;
+    --border: #1a1a1a;
     --text: #E2E8F0;
-    --text-muted: #94A3B8;
+    --text-muted: #71717A;
   }
 
   html {
@@ -24,10 +35,7 @@
   }
 
   body {
-    @apply bg-[#0A0D14] text-slate-200 font-sans antialiased;
-    background-image:
-      radial-gradient(at 0% 0%, rgba(99, 91, 255, 0.1) 0%, transparent 50%),
-      radial-gradient(at 100% 100%, rgba(99, 91, 255, 0.05) 0%, transparent 50%);
+    @apply bg-dark-bg text-zinc-200 font-sans antialiased;
     min-height: 100vh;
     margin: 0;
   }
@@ -39,22 +47,65 @@
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-surface-800;
+    @apply bg-dark-surface;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-surface-500 rounded-full;
+    @apply bg-dark-border rounded-full;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-surface-400;
+    @apply bg-dark-border-hover;
   }
 }
 
 @layer components {
-  /* Glass morphism card */
+  /* Grain texture overlay */
+  .grain-overlay {
+    position: relative;
+  }
+
+  .grain-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/textures/grain.png');
+    background-repeat: repeat;
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Grid pattern overlay */
+  .grid-pattern {
+    background-image:
+      linear-gradient(to right, rgba(212, 168, 83, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(212, 168, 83, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* Premium card */
+  .premium-card {
+    @apply bg-dark-card border border-dark-border rounded-2xl;
+    background: linear-gradient(
+      135deg,
+      rgba(17, 17, 17, 0.9) 0%,
+      rgba(10, 10, 10, 0.95) 100%
+    );
+  }
+
+  .premium-card-hover {
+    @apply premium-card transition-all duration-300;
+  }
+
+  .premium-card-hover:hover {
+    @apply border-dark-border-hover shadow-premium;
+    transform: translateY(-2px);
+  }
+
+  /* Glass morphism card (legacy) */
   .glass-card {
-    @apply bg-surface-500/50 backdrop-blur-md border border-white/10 rounded-xl;
+    @apply bg-dark-card/50 backdrop-blur-md border border-white/10 rounded-xl;
   }
 
   /* Glow effect on hover */
@@ -68,25 +119,30 @@
 
   /* Gradient text */
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-300;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-500;
+  }
+
+  .gradient-text-amber {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #D4A853 0%, #f5e08f 100%);
   }
 
   /* Button base styles */
   .btn {
     @apply inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium
            transition-all duration-200 ease-out focus:outline-none focus:ring-2
-           focus:ring-offset-2 focus:ring-offset-[#0A0D14] disabled:opacity-50
+           focus:ring-offset-2 focus:ring-offset-dark-bg disabled:opacity-50
            disabled:cursor-not-allowed;
   }
 
   .btn-primary {
-    @apply btn bg-primary-500 text-white hover:bg-primary-400
-           focus:ring-primary-500 shadow-lg hover:shadow-glow;
+    @apply btn bg-amber-500 text-dark-bg hover:bg-amber-400
+           focus:ring-amber-500 shadow-lg hover:shadow-glow-amber;
   }
 
   .btn-secondary {
-    @apply btn bg-surface-500 text-slate-200 border border-white/10
-           hover:bg-surface-400 hover:border-white/20 focus:ring-surface-400;
+    @apply btn bg-dark-card text-zinc-200 border border-dark-border
+           hover:bg-dark-surface hover:border-dark-border-hover focus:ring-zinc-500;
   }
 
   .btn-danger {
@@ -94,28 +150,94 @@
   }
 
   .btn-ghost {
-    @apply btn text-slate-300 hover:text-white hover:bg-white/5;
+    @apply btn text-zinc-400 hover:text-white hover:bg-white/5;
+  }
+
+  /* Amber CTA button (Linear-style) */
+  .btn-amber {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold
+           bg-amber-500 text-dark-bg hover:bg-amber-400 transition-all duration-200
+           shadow-lg hover:shadow-glow-amber focus:outline-none focus:ring-2
+           focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-dark-bg;
   }
 
   /* Input styles */
   .input {
-    @apply w-full px-4 py-3 bg-surface-500/50 border border-white/10 rounded-lg
-           text-slate-200 placeholder-slate-500 transition-all duration-200
-           focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500;
+    @apply w-full px-4 py-3 bg-dark-surface border border-dark-border rounded-lg
+           text-zinc-200 placeholder-zinc-600 transition-all duration-200
+           focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500;
   }
 
   .input-error {
     @apply border-danger focus:border-danger focus:ring-danger;
   }
 
+  /* Premium input */
+  .input-premium {
+    @apply w-full px-4 py-3 bg-dark-card border border-dark-border rounded-xl
+           text-zinc-200 placeholder-zinc-500 transition-all duration-200
+           focus:outline-none focus:border-amber-500/50 focus:ring-1 focus:ring-amber-500/30
+           hover:border-dark-border-hover;
+  }
+
   /* Card styles */
   .card {
-    @apply bg-surface-500/50 backdrop-blur-md border border-white/10 rounded-xl p-6;
+    @apply bg-dark-card backdrop-blur-md border border-dark-border rounded-xl p-6;
   }
 
   .card-hover {
-    @apply card transition-all duration-300 hover:border-white/20
+    @apply card transition-all duration-300 hover:border-dark-border-hover
            hover:shadow-lg hover:-translate-y-0.5;
+  }
+
+  /* Badge styles */
+  .badge {
+    @apply inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium
+           bg-dark-card border border-dark-border;
+  }
+
+  .badge-amber {
+    @apply badge bg-amber-500/10 border-amber-500/30 text-amber-400;
+  }
+
+  /* Progress bar */
+  .progress-bar {
+    @apply h-2 rounded-full bg-dark-surface overflow-hidden;
+  }
+
+  .progress-bar-fill {
+    @apply h-full bg-gradient-to-r from-amber-600 to-amber-400 rounded-full
+           transition-all duration-1000 ease-out;
+  }
+
+  /* OAuth buttons */
+  .oauth-btn {
+    @apply flex items-center justify-center gap-3 w-full px-4 py-3 rounded-xl
+           border border-dark-border bg-dark-card text-zinc-200 font-medium
+           transition-all duration-200 hover:border-dark-border-hover
+           hover:bg-dark-surface disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Section styles */
+  .section-dark {
+    @apply bg-dark-bg relative;
+  }
+
+  .section-surface {
+    @apply bg-dark-surface relative;
+  }
+
+  /* Typography */
+  .heading-display {
+    @apply font-display text-4xl md:text-6xl lg:text-7xl text-white leading-tight;
+  }
+
+  .heading-section {
+    @apply font-sans text-3xl md:text-4xl font-bold text-white;
+  }
+
+  .text-muted {
+    @apply text-zinc-500;
   }
 }
 
@@ -134,5 +256,15 @@
 
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
+  }
+
+  /* Subtle amber glow */
+  .amber-glow {
+    box-shadow: 0 0 100px rgba(212, 168, 83, 0.15);
+  }
+
+  /* Text shadow for headings */
+  .text-shadow-amber {
+    text-shadow: 0 0 40px rgba(212, 168, 83, 0.3);
   }
 }
