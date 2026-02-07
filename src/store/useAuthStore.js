@@ -43,12 +43,22 @@ const useAuthStore = create(
                 try {
                     const data = await api.auth.register(email, password, inviteCode);
                     localStorage.setItem('token', data.token);
+
+                    // If beta access was granted, set localStorage flag for AccessGate
+                    if (data.betaAccess?.granted) {
+                        localStorage.setItem('ep_beta_access', 'true');
+                    }
+
                     set({
                         user: data.user,
                         token: data.token,
                         isAuthenticated: true,
                         isLoading: false,
-                        betaAccess: data.betaAccess || null,
+                        // Normalize betaAccess to use hasBetaAccess for consistency
+                        betaAccess: data.betaAccess ? {
+                            hasBetaAccess: data.betaAccess.granted,
+                            inviteCodes: data.betaAccess.inviteCodes,
+                        } : null,
                     });
                     return data;
                 } catch (err) {
@@ -62,11 +72,18 @@ const useAuthStore = create(
                 try {
                     const data = await api.auth.login(email, password);
                     localStorage.setItem('token', data.token);
+
+                    // If user has beta access, set localStorage flag for AccessGate
+                    if (data.user?.has_beta_access) {
+                        localStorage.setItem('ep_beta_access', 'true');
+                    }
+
                     set({
                         user: data.user,
                         token: data.token,
                         isAuthenticated: true,
                         isLoading: false,
+                        betaAccess: data.user?.has_beta_access ? { hasBetaAccess: true } : null,
                     });
                     return data;
                 } catch (err) {
@@ -77,11 +94,13 @@ const useAuthStore = create(
 
             logout: () => {
                 localStorage.removeItem('token');
+                localStorage.removeItem('ep_beta_access');
                 set({
                     user: null,
                     token: null,
                     isAuthenticated: false,
                     error: null,
+                    betaAccess: null,
                 });
             },
 
@@ -96,19 +115,28 @@ const useAuthStore = create(
                 set({ token, isLoading: true });
                 try {
                     const data = await api.user.getMe();
+
+                    // Sync beta access with localStorage
+                    if (data.user?.has_beta_access) {
+                        localStorage.setItem('ep_beta_access', 'true');
+                    }
+
                     set({
                         user: data.user,
                         isAuthenticated: true,
                         isLoading: false,
+                        betaAccess: data.user?.has_beta_access ? { hasBetaAccess: true } : null,
                     });
                 } catch (err) {
                     // Token invalid, clear auth
                     localStorage.removeItem('token');
+                    localStorage.removeItem('ep_beta_access');
                     set({
                         user: null,
                         token: null,
                         isAuthenticated: false,
                         isLoading: false,
+                        betaAccess: null,
                     });
                 }
             },
