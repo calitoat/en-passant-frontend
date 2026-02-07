@@ -11,7 +11,7 @@ import { useLocation, useSearchParams } from 'react-router-dom';
 import useAuthStore from '../store/useAuthStore';
 import BetaOverlay from './BetaOverlay';
 
-const EXEMPT_PATHS = ['/login', '/register', '/join', '/auth/error', '/privacy', '/terms'];
+const EXEMPT_PATHS = ['/', '/login', '/register', '/join', '/auth/error', '/privacy', '/terms'];
 
 export default function AccessGate({ children }) {
     const { betaAccess, fetchBetaStatus, isAuthenticated, isLoading } = useAuthStore();
