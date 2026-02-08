@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useSearchParams } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
 import EnlistForm from './EnlistForm';
 import RookIcon from './icons/RookIcon';
 
@@ -63,16 +62,13 @@ export default function LinearLandingTemplate({
                         <span className="text-xl font-semibold text-white">En Passant</span>
                     </Link>
                     <div className="flex items-center gap-4">
-                        <Link to="/login" className="hidden md:block text-zinc-400 hover:text-white font-medium transition-colors">
-                            Sign In
-                        </Link>
-                        <Link
-                            to={`/register?source=${vertical}`}
+                        <a
+                            href="#waitlist"
                             className="px-4 py-2 rounded-lg font-medium text-dark-bg transition-colors"
                             style={{ backgroundColor: accentColor }}
                         >
-                            Get Verified
-                        </Link>
+                            Join Waitlist
+                        </a>
                     </div>
                 </div>
             </nav>
@@ -139,10 +135,11 @@ export default function LinearLandingTemplate({
 
                     {/* Enlist Form */}
                     <motion.div
+                        id="waitlist"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3 }}
-                        className="max-w-lg mx-auto"
+                        className="max-w-lg mx-auto scroll-mt-24"
                     >
                         <EnlistForm
                             vertical={vertical}
@@ -150,7 +147,7 @@ export default function LinearLandingTemplate({
                             ctaText={ctaText}
                             subtitle={formSubtitle}
                             theme="dark"
-                            showPreVerification={true}
+                            showPreVerification={false}
                             accentColor={accentColor}
                         />
                     </motion.div>
@@ -308,7 +305,7 @@ export default function LinearLandingTemplate({
                             ctaText="RESERVE MY SPOT"
                             subtitle="Launch day priority access"
                             theme="dark"
-                            showPreVerification={true}
+                            showPreVerification={false}
                             accentColor={accentColor}
                         />
                     </motion.div>

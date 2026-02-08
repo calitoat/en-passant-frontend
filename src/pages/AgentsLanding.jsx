@@ -1,14 +1,11 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Link, useNavigate, useSearchParams } from 'react-router-dom';
-import { Bot, Shield, Code, Key, Cpu, ArrowRight, Terminal, Zap } from 'lucide-react';
-import CountdownTimer from '../components/CountdownTimer';
-import BotDefenseSignal from '../components/BotDefenseSignal';
+import { Link, useSearchParams } from 'react-router-dom';
+import { Bot, Shield, Code, Key, Cpu, Terminal } from 'lucide-react';
 import EnlistForm from '../components/EnlistForm';
 import RookIcon from '../components/icons/RookIcon';
 
 export default function AgentsLanding() {
-    const navigate = useNavigate();
     const [searchParams] = useSearchParams();
     const source = searchParams.get('source') || 'organic';
     const [stats, setStats] = useState({ total: 2500, byVertical: { agents: 400 } });
@@ -93,12 +90,9 @@ agent.setCredentials(rankGuard.token);`;
                         <span className="text-xl font-bold text-cream-300">En Passant</span>
                     </Link>
                     <div className="flex items-center gap-4">
-                        <Link to="/login" className="hidden md:block text-cream-500 hover:text-cream-300 font-medium">
-                            Sign In
-                        </Link>
-                        <Link to="/register?source=agents" className="px-4 py-2 bg-primary-500 text-chess-black rounded-lg font-medium hover:bg-primary-400 transition-colors">
-                            Get Started
-                        </Link>
+                        <a href="#waitlist" className="px-4 py-2 bg-primary-500 text-chess-black rounded-lg font-medium hover:bg-primary-400 transition-colors">
+                            Join Waitlist
+                        </a>
                     </div>
                 </div>
             </nav>
@@ -135,32 +129,13 @@ agent.setCredentials(rankGuard.token);`;
                         and custom agents to act on your behalf with cryptographically verified identity.
                     </motion.p>
 
-                    {/* Countdown Timer */}
+                    {/* Enlist Form */}
                     <motion.div
+                        id="waitlist"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3 }}
-                        className="mb-8 max-w-3xl mx-auto"
-                    >
-                        <CountdownTimer targetDate="2026-02-08T19:00:00-08:00" theme="dark" size="large" />
-                    </motion.div>
-
-                    {/* Bot Defense */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4 }}
-                        className="mb-8 max-w-3xl mx-auto"
-                    >
-                        <BotDefenseSignal initialVerifiedHumans={stats.total} initialBotsBlocked={stats.total * 8} realtime={true} />
-                    </motion.div>
-
-                    {/* Enlist Form */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5 }}
-                        className="max-w-lg mx-auto"
+                        className="max-w-lg mx-auto scroll-mt-24"
                     >
                         <EnlistForm
                             vertical="agents"
@@ -168,6 +143,7 @@ agent.setCredentials(rankGuard.token);`;
                             ctaText="GET AGENT API ACCESS"
                             subtitle="Early access to Rank Guard SDK for developers"
                             theme="dark"
+                            showPreVerification={false}
                         />
                     </motion.div>
                 </div>
@@ -279,6 +255,7 @@ agent.setCredentials(rankGuard.token);`;
                         ctaText="GET SDK ACCESS"
                         subtitle="Launch day priority for developers"
                         theme="dark"
+                        showPreVerification={false}
                     />
                 </div>
             </section>

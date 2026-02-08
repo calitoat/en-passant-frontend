@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Link, useNavigate, useSearchParams } from 'react-router-dom';
-import { Shield, ArrowRight, Check, Ticket, Users, Ban, Sparkles, DollarSign } from 'lucide-react';
+import { Link, useSearchParams } from 'react-router-dom';
+import { Shield, Ticket, Ban, Sparkles, DollarSign } from 'lucide-react';
 import EnlistForm from '../components/EnlistForm';
 import { PriceComparisonGraphic, PriceCapExplainer } from '../components/tickets';
 
 export default function TicketsLanding() {
-    const navigate = useNavigate();
     const [searchParams] = useSearchParams();
     const source = searchParams.get('source') || 'organic';
     const [stats, setStats] = useState({ total: 2500, byVertical: { tickets: 875 } });
@@ -18,10 +17,6 @@ export default function TicketsLanding() {
             .then(data => setStats(data))
             .catch(err => console.log('Stats fetch failed, using defaults'));
     }, []);
-
-    const handleCTA = () => {
-        navigate(`/register?source=tickets-${source}`);
-    };
 
     const painPoints = [
         {
@@ -83,26 +78,16 @@ export default function TicketsLanding() {
                         <span className="text-xl font-black text-black tracking-tight">En Passant</span>
                     </Link>
                     <div className="flex items-center gap-4">
-                        <Link to="/tickets/browse" className="hidden md:block">
-                            <button className="px-4 py-2 font-bold text-black hover:text-pink-500 transition-colors">
-                                Browse Tickets
-                            </button>
-                        </Link>
-                        <Link to="/login" className="hidden md:block">
-                            <button className="px-4 py-2 font-bold text-black hover:text-pink-500 transition-colors">
-                                Sign In
-                            </button>
-                        </Link>
-                        <button
-                            onClick={handleCTA}
+                        <a
+                            href="#waitlist"
                             className="px-4 md:px-6 py-2 font-bold text-white border-3 border-black transition-all hover:translate-x-1 hover:translate-y-1 hover:shadow-none text-sm md:text-base"
                             style={{
                                 backgroundColor: '#FF69B4',
                                 boxShadow: '4px 4px 0px #000'
                             }}
                         >
-                            Get Verified
-                        </button>
+                            Join Waitlist
+                        </a>
                     </div>
                 </div>
             </nav>
@@ -159,10 +144,11 @@ export default function TicketsLanding() {
 
                     {/* Enlist Form */}
                     <motion.div
+                        id="waitlist"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.3 }}
-                        className="max-w-lg mx-auto"
+                        className="max-w-lg mx-auto scroll-mt-24"
                     >
                         <EnlistForm
                             vertical="tickets"
@@ -170,7 +156,7 @@ export default function TicketsLanding() {
                             ctaText="JOIN THE FAN QUEUE"
                             subtitle="Get priority access when we launch"
                             theme="dark"
-                            showPreVerification={true}
+                            showPreVerification={false}
                             accentColor="#FF69B4"
                         />
                     </motion.div>
@@ -384,7 +370,7 @@ export default function TicketsLanding() {
                         ctaText="RESERVE MY SPOT"
                         subtitle="Launch day priority access"
                         theme="dark"
-                        showPreVerification={true}
+                        showPreVerification={false}
                         accentColor="#FF69B4"
                     />
                 </div>

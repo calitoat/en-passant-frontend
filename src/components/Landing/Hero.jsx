@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { ArrowRight, Shield } from 'lucide-react';
+import { Shield } from 'lucide-react';
 import RookIcon from '../icons/RookIcon';
+import EnlistForm from '../EnlistForm';
 
 export default function Hero() {
     return (
@@ -57,32 +57,22 @@ export default function Hero() {
                     En Passant verifies you're human so platforms can trust you.
                 </motion.p>
 
-                {/* CTA Buttons */}
+                {/* Waitlist Form */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
-                    className="flex flex-col sm:flex-row items-center justify-center gap-4"
+                    className="max-w-md mx-auto"
                 >
-                    <Link to="/register">
-                        <motion.button
-                            className="btn-amber group text-lg px-8 py-4"
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
-                        >
-                            Get Verified
-                            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </motion.button>
-                    </Link>
-                    <Link to="/login">
-                        <motion.button
-                            className="btn-secondary text-lg px-8 py-4"
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
-                        >
-                            Sign In
-                        </motion.button>
-                    </Link>
+                    <EnlistForm
+                        vertical="general"
+                        source="homepage"
+                        ctaText="JOIN THE WAITLIST"
+                        subtitle="Be first to get verified when we launch"
+                        theme="dark"
+                        showPreVerification={false}
+                        accentColor="#D4A853"
+                    />
                 </motion.div>
 
                 {/* Trust indicators */}
