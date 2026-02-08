@@ -1,0 +1,707 @@
+{
+  "generatedAt": "2026-02-08T03:06:48.546Z",
+  "baseUrl": "https://enpassantapi.io",
+  "totalCodes": 100,
+  "codes": [
+    {
+      "vertical": "tickets",
+      "source": "poster",
+      "filename": "tickets-poster-qr.png",
+      "url": "https://enpassantapi.io/tickets?source=poster",
+      "path": "/qr-codes/tickets-poster-qr.png"
+    },
+    {
+      "vertical": "tickets",
+      "source": "flyer",
+      "filename": "tickets-flyer-qr.png",
+      "url": "https://enpassantapi.io/tickets?source=flyer",
+      "path": "/qr-codes/tickets-flyer-qr.png"
+    },
+    {
+      "vertical": "tickets",
+      "source": "business-card",
+      "filename": "tickets-business-card-qr.png",
+      "url": "https://enpassantapi.io/tickets?source=business-card",
+      "path": "/qr-codes/tickets-business-card-qr.png"
+    },
+    {
+      "vertical": "tickets",
+      "source": "billboard",
+      "filename": "tickets-billboard-qr.png",
+      "url": "https://enpassantapi.io/tickets?source=billboard",
+      "path": "/qr-codes/tickets-billboard-qr.png"
+    },
+    {
+      "vertical": "tickets",
+      "source": "subway",
+      "filename": "tickets-subway-qr.png",
+      "url": "https://enpassantapi.io/tickets?source=subway",
+      "path": "/qr-codes/tickets-subway-qr.png"
+    },
+    {
+      "vertical": "tickets",
+      "source": "bus-shelter",
+      "filename": "tickets-bus-shelter-qr.png",
+      "url": "https://enpassantapi.io/tickets?source=bus-shelter",
+      "path": "/qr-codes/tickets-bus-shelter-qr.png"
+    },
+    {
+      "vertical": "tickets",
+      "source": "event-booth",
+      "filename": "tickets-event-booth-qr.png",
+      "url": "https://enpassantapi.io/tickets?source=event-booth",
+      "path": "/qr-codes/tickets-event-booth-qr.png"
+    },
+    {
+      "vertical": "tickets",
+      "source": "handout",
+      "filename": "tickets-handout-qr.png",
+      "url": "https://enpassantapi.io/tickets?source=handout",
+      "path": "/qr-codes/tickets-handout-qr.png"
+    },
+    {
+      "vertical": "tickets",
+      "source": "sticker",
+      "filename": "tickets-sticker-qr.png",
+      "url": "https://enpassantapi.io/tickets?source=sticker",
+      "path": "/qr-codes/tickets-sticker-qr.png"
+    },
+    {
+      "vertical": "tickets",
+      "source": "postcard",
+      "filename": "tickets-postcard-qr.png",
+      "url": "https://enpassantapi.io/tickets?source=postcard",
+      "path": "/qr-codes/tickets-postcard-qr.png"
+    },
+    {
+      "vertical": "tickets",
+      "source": "banner",
+      "filename": "tickets-banner-qr.png",
+      "url": "https://enpassantapi.io/tickets?source=banner",
+      "path": "/qr-codes/tickets-banner-qr.png"
+    },
+    {
+      "vertical": "tickets",
+      "source": "window-display",
+      "filename": "tickets-window-display-qr.png",
+      "url": "https://enpassantapi.io/tickets?source=window-display",
+      "path": "/qr-codes/tickets-window-display-qr.png"
+    },
+    {
+      "vertical": "tickets",
+      "source": "table-tent",
+      "filename": "tickets-table-tent-qr.png",
+      "url": "https://enpassantapi.io/tickets?source=table-tent",
+      "path": "/qr-codes/tickets-table-tent-qr.png"
+    },
+    {
+      "vertical": "tickets",
+      "source": "receipt",
+      "filename": "tickets-receipt-qr.png",
+      "url": "https://enpassantapi.io/tickets?source=receipt",
+      "path": "/qr-codes/tickets-receipt-qr.png"
+    },
+    {
+      "vertical": "tickets",
+      "source": "packaging",
+      "filename": "tickets-packaging-qr.png",
+      "url": "https://enpassantapi.io/tickets?source=packaging",
+      "path": "/qr-codes/tickets-packaging-qr.png"
+    },
+    {
+      "vertical": "tickets",
+      "source": "direct-mail",
+      "filename": "tickets-direct-mail-qr.png",
+      "url": "https://enpassantapi.io/tickets?source=direct-mail",
+      "path": "/qr-codes/tickets-direct-mail-qr.png"
+    },
+    {
+      "vertical": "tickets",
+      "source": "magazine-ad",
+      "filename": "tickets-magazine-ad-qr.png",
+      "url": "https://enpassantapi.io/tickets?source=magazine-ad",
+      "path": "/qr-codes/tickets-magazine-ad-qr.png"
+    },
+    {
+      "vertical": "tickets",
+      "source": "newspaper-ad",
+      "filename": "tickets-newspaper-ad-qr.png",
+      "url": "https://enpassantapi.io/tickets?source=newspaper-ad",
+      "path": "/qr-codes/tickets-newspaper-ad-qr.png"
+    },
+    {
+      "vertical": "tickets",
+      "source": "radio-spot",
+      "filename": "tickets-radio-spot-qr.png",
+      "url": "https://enpassantapi.io/tickets?source=radio-spot",
+      "path": "/qr-codes/tickets-radio-spot-qr.png"
+    },
+    {
+      "vertical": "tickets",
+      "source": "tv-spot",
+      "filename": "tickets-tv-spot-qr.png",
+      "url": "https://enpassantapi.io/tickets?source=tv-spot",
+      "path": "/qr-codes/tickets-tv-spot-qr.png"
+    },
+    {
+      "vertical": "apartments",
+      "source": "poster",
+      "filename": "apartments-poster-qr.png",
+      "url": "https://enpassantapi.io/apartments?source=poster",
+      "path": "/qr-codes/apartments-poster-qr.png"
+    },
+    {
+      "vertical": "apartments",
+      "source": "flyer",
+      "filename": "apartments-flyer-qr.png",
+      "url": "https://enpassantapi.io/apartments?source=flyer",
+      "path": "/qr-codes/apartments-flyer-qr.png"
+    },
+    {
+      "vertical": "apartments",
+      "source": "business-card",
+      "filename": "apartments-business-card-qr.png",
+      "url": "https://enpassantapi.io/apartments?source=business-card",
+      "path": "/qr-codes/apartments-business-card-qr.png"
+    },
+    {
+      "vertical": "apartments",
+      "source": "billboard",
+      "filename": "apartments-billboard-qr.png",
+      "url": "https://enpassantapi.io/apartments?source=billboard",
+      "path": "/qr-codes/apartments-billboard-qr.png"
+    },
+    {
+      "vertical": "apartments",
+      "source": "subway",
+      "filename": "apartments-subway-qr.png",
+      "url": "https://enpassantapi.io/apartments?source=subway",
+      "path": "/qr-codes/apartments-subway-qr.png"
+    },
+    {
+      "vertical": "apartments",
+      "source": "bus-shelter",
+      "filename": "apartments-bus-shelter-qr.png",
+      "url": "https://enpassantapi.io/apartments?source=bus-shelter",
+      "path": "/qr-codes/apartments-bus-shelter-qr.png"
+    },
+    {
+      "vertical": "apartments",
+      "source": "event-booth",
+      "filename": "apartments-event-booth-qr.png",
+      "url": "https://enpassantapi.io/apartments?source=event-booth",
+      "path": "/qr-codes/apartments-event-booth-qr.png"
+    },
+    {
+      "vertical": "apartments",
+      "source": "handout",
+      "filename": "apartments-handout-qr.png",
+      "url": "https://enpassantapi.io/apartments?source=handout",
+      "path": "/qr-codes/apartments-handout-qr.png"
+    },
+    {
+      "vertical": "apartments",
+      "source": "sticker",
+      "filename": "apartments-sticker-qr.png",
+      "url": "https://enpassantapi.io/apartments?source=sticker",
+      "path": "/qr-codes/apartments-sticker-qr.png"
+    },
+    {
+      "vertical": "apartments",
+      "source": "postcard",
+      "filename": "apartments-postcard-qr.png",
+      "url": "https://enpassantapi.io/apartments?source=postcard",
+      "path": "/qr-codes/apartments-postcard-qr.png"
+    },
+    {
+      "vertical": "apartments",
+      "source": "banner",
+      "filename": "apartments-banner-qr.png",
+      "url": "https://enpassantapi.io/apartments?source=banner",
+      "path": "/qr-codes/apartments-banner-qr.png"
+    },
+    {
+      "vertical": "apartments",
+      "source": "window-display",
+      "filename": "apartments-window-display-qr.png",
+      "url": "https://enpassantapi.io/apartments?source=window-display",
+      "path": "/qr-codes/apartments-window-display-qr.png"
+    },
+    {
+      "vertical": "apartments",
+      "source": "table-tent",
+      "filename": "apartments-table-tent-qr.png",
+      "url": "https://enpassantapi.io/apartments?source=table-tent",
+      "path": "/qr-codes/apartments-table-tent-qr.png"
+    },
+    {
+      "vertical": "apartments",
+      "source": "receipt",
+      "filename": "apartments-receipt-qr.png",
+      "url": "https://enpassantapi.io/apartments?source=receipt",
+      "path": "/qr-codes/apartments-receipt-qr.png"
+    },
+    {
+      "vertical": "apartments",
+      "source": "packaging",
+      "filename": "apartments-packaging-qr.png",
+      "url": "https://enpassantapi.io/apartments?source=packaging",
+      "path": "/qr-codes/apartments-packaging-qr.png"
+    },
+    {
+      "vertical": "apartments",
+      "source": "direct-mail",
+      "filename": "apartments-direct-mail-qr.png",
+      "url": "https://enpassantapi.io/apartments?source=direct-mail",
+      "path": "/qr-codes/apartments-direct-mail-qr.png"
+    },
+    {
+      "vertical": "apartments",
+      "source": "magazine-ad",
+      "filename": "apartments-magazine-ad-qr.png",
+      "url": "https://enpassantapi.io/apartments?source=magazine-ad",
+      "path": "/qr-codes/apartments-magazine-ad-qr.png"
+    },
+    {
+      "vertical": "apartments",
+      "source": "newspaper-ad",
+      "filename": "apartments-newspaper-ad-qr.png",
+      "url": "https://enpassantapi.io/apartments?source=newspaper-ad",
+      "path": "/qr-codes/apartments-newspaper-ad-qr.png"
+    },
+    {
+      "vertical": "apartments",
+      "source": "radio-spot",
+      "filename": "apartments-radio-spot-qr.png",
+      "url": "https://enpassantapi.io/apartments?source=radio-spot",
+      "path": "/qr-codes/apartments-radio-spot-qr.png"
+    },
+    {
+      "vertical": "apartments",
+      "source": "tv-spot",
+      "filename": "apartments-tv-spot-qr.png",
+      "url": "https://enpassantapi.io/apartments?source=tv-spot",
+      "path": "/qr-codes/apartments-tv-spot-qr.png"
+    },
+    {
+      "vertical": "jobs",
+      "source": "poster",
+      "filename": "jobs-poster-qr.png",
+      "url": "https://enpassantapi.io/jobs?source=poster",
+      "path": "/qr-codes/jobs-poster-qr.png"
+    },
+    {
+      "vertical": "jobs",
+      "source": "flyer",
+      "filename": "jobs-flyer-qr.png",
+      "url": "https://enpassantapi.io/jobs?source=flyer",
+      "path": "/qr-codes/jobs-flyer-qr.png"
+    },
+    {
+      "vertical": "jobs",
+      "source": "business-card",
+      "filename": "jobs-business-card-qr.png",
+      "url": "https://enpassantapi.io/jobs?source=business-card",
+      "path": "/qr-codes/jobs-business-card-qr.png"
+    },
+    {
+      "vertical": "jobs",
+      "source": "billboard",
+      "filename": "jobs-billboard-qr.png",
+      "url": "https://enpassantapi.io/jobs?source=billboard",
+      "path": "/qr-codes/jobs-billboard-qr.png"
+    },
+    {
+      "vertical": "jobs",
+      "source": "subway",
+      "filename": "jobs-subway-qr.png",
+      "url": "https://enpassantapi.io/jobs?source=subway",
+      "path": "/qr-codes/jobs-subway-qr.png"
+    },
+    {
+      "vertical": "jobs",
+      "source": "bus-shelter",
+      "filename": "jobs-bus-shelter-qr.png",
+      "url": "https://enpassantapi.io/jobs?source=bus-shelter",
+      "path": "/qr-codes/jobs-bus-shelter-qr.png"
+    },
+    {
+      "vertical": "jobs",
+      "source": "event-booth",
+      "filename": "jobs-event-booth-qr.png",
+      "url": "https://enpassantapi.io/jobs?source=event-booth",
+      "path": "/qr-codes/jobs-event-booth-qr.png"
+    },
+    {
+      "vertical": "jobs",
+      "source": "handout",
+      "filename": "jobs-handout-qr.png",
+      "url": "https://enpassantapi.io/jobs?source=handout",
+      "path": "/qr-codes/jobs-handout-qr.png"
+    },
+    {
+      "vertical": "jobs",
+      "source": "sticker",
+      "filename": "jobs-sticker-qr.png",
+      "url": "https://enpassantapi.io/jobs?source=sticker",
+      "path": "/qr-codes/jobs-sticker-qr.png"
+    },
+    {
+      "vertical": "jobs",
+      "source": "postcard",
+      "filename": "jobs-postcard-qr.png",
+      "url": "https://enpassantapi.io/jobs?source=postcard",
+      "path": "/qr-codes/jobs-postcard-qr.png"
+    },
+    {
+      "vertical": "jobs",
+      "source": "banner",
+      "filename": "jobs-banner-qr.png",
+      "url": "https://enpassantapi.io/jobs?source=banner",
+      "path": "/qr-codes/jobs-banner-qr.png"
+    },
+    {
+      "vertical": "jobs",
+      "source": "window-display",
+      "filename": "jobs-window-display-qr.png",
+      "url": "https://enpassantapi.io/jobs?source=window-display",
+      "path": "/qr-codes/jobs-window-display-qr.png"
+    },
+    {
+      "vertical": "jobs",
+      "source": "table-tent",
+      "filename": "jobs-table-tent-qr.png",
+      "url": "https://enpassantapi.io/jobs?source=table-tent",
+      "path": "/qr-codes/jobs-table-tent-qr.png"
+    },
+    {
+      "vertical": "jobs",
+      "source": "receipt",
+      "filename": "jobs-receipt-qr.png",
+      "url": "https://enpassantapi.io/jobs?source=receipt",
+      "path": "/qr-codes/jobs-receipt-qr.png"
+    },
+    {
+      "vertical": "jobs",
+      "source": "packaging",
+      "filename": "jobs-packaging-qr.png",
+      "url": "https://enpassantapi.io/jobs?source=packaging",
+      "path": "/qr-codes/jobs-packaging-qr.png"
+    },
+    {
+      "vertical": "jobs",
+      "source": "direct-mail",
+      "filename": "jobs-direct-mail-qr.png",
+      "url": "https://enpassantapi.io/jobs?source=direct-mail",
+      "path": "/qr-codes/jobs-direct-mail-qr.png"
+    },
+    {
+      "vertical": "jobs",
+      "source": "magazine-ad",
+      "filename": "jobs-magazine-ad-qr.png",
+      "url": "https://enpassantapi.io/jobs?source=magazine-ad",
+      "path": "/qr-codes/jobs-magazine-ad-qr.png"
+    },
+    {
+      "vertical": "jobs",
+      "source": "newspaper-ad",
+      "filename": "jobs-newspaper-ad-qr.png",
+      "url": "https://enpassantapi.io/jobs?source=newspaper-ad",
+      "path": "/qr-codes/jobs-newspaper-ad-qr.png"
+    },
+    {
+      "vertical": "jobs",
+      "source": "radio-spot",
+      "filename": "jobs-radio-spot-qr.png",
+      "url": "https://enpassantapi.io/jobs?source=radio-spot",
+      "path": "/qr-codes/jobs-radio-spot-qr.png"
+    },
+    {
+      "vertical": "jobs",
+      "source": "tv-spot",
+      "filename": "jobs-tv-spot-qr.png",
+      "url": "https://enpassantapi.io/jobs?source=tv-spot",
+      "path": "/qr-codes/jobs-tv-spot-qr.png"
+    },
+    {
+      "vertical": "dating",
+      "source": "poster",
+      "filename": "dating-poster-qr.png",
+      "url": "https://enpassantapi.io/dating?source=poster",
+      "path": "/qr-codes/dating-poster-qr.png"
+    },
+    {
+      "vertical": "dating",
+      "source": "flyer",
+      "filename": "dating-flyer-qr.png",
+      "url": "https://enpassantapi.io/dating?source=flyer",
+      "path": "/qr-codes/dating-flyer-qr.png"
+    },
+    {
+      "vertical": "dating",
+      "source": "business-card",
+      "filename": "dating-business-card-qr.png",
+      "url": "https://enpassantapi.io/dating?source=business-card",
+      "path": "/qr-codes/dating-business-card-qr.png"
+    },
+    {
+      "vertical": "dating",
+      "source": "billboard",
+      "filename": "dating-billboard-qr.png",
+      "url": "https://enpassantapi.io/dating?source=billboard",
+      "path": "/qr-codes/dating-billboard-qr.png"
+    },
+    {
+      "vertical": "dating",
+      "source": "subway",
+      "filename": "dating-subway-qr.png",
+      "url": "https://enpassantapi.io/dating?source=subway",
+      "path": "/qr-codes/dating-subway-qr.png"
+    },
+    {
+      "vertical": "dating",
+      "source": "bus-shelter",
+      "filename": "dating-bus-shelter-qr.png",
+      "url": "https://enpassantapi.io/dating?source=bus-shelter",
+      "path": "/qr-codes/dating-bus-shelter-qr.png"
+    },
+    {
+      "vertical": "dating",
+      "source": "event-booth",
+      "filename": "dating-event-booth-qr.png",
+      "url": "https://enpassantapi.io/dating?source=event-booth",
+      "path": "/qr-codes/dating-event-booth-qr.png"
+    },
+    {
+      "vertical": "dating",
+      "source": "handout",
+      "filename": "dating-handout-qr.png",
+      "url": "https://enpassantapi.io/dating?source=handout",
+      "path": "/qr-codes/dating-handout-qr.png"
+    },
+    {
+      "vertical": "dating",
+      "source": "sticker",
+      "filename": "dating-sticker-qr.png",
+      "url": "https://enpassantapi.io/dating?source=sticker",
+      "path": "/qr-codes/dating-sticker-qr.png"
+    },
+    {
+      "vertical": "dating",
+      "source": "postcard",
+      "filename": "dating-postcard-qr.png",
+      "url": "https://enpassantapi.io/dating?source=postcard",
+      "path": "/qr-codes/dating-postcard-qr.png"
+    },
+    {
+      "vertical": "dating",
+      "source": "banner",
+      "filename": "dating-banner-qr.png",
+      "url": "https://enpassantapi.io/dating?source=banner",
+      "path": "/qr-codes/dating-banner-qr.png"
+    },
+    {
+      "vertical": "dating",
+      "source": "window-display",
+      "filename": "dating-window-display-qr.png",
+      "url": "https://enpassantapi.io/dating?source=window-display",
+      "path": "/qr-codes/dating-window-display-qr.png"
+    },
+    {
+      "vertical": "dating",
+      "source": "table-tent",
+      "filename": "dating-table-tent-qr.png",
+      "url": "https://enpassantapi.io/dating?source=table-tent",
+      "path": "/qr-codes/dating-table-tent-qr.png"
+    },
+    {
+      "vertical": "dating",
+      "source": "receipt",
+      "filename": "dating-receipt-qr.png",
+      "url": "https://enpassantapi.io/dating?source=receipt",
+      "path": "/qr-codes/dating-receipt-qr.png"
+    },
+    {
+      "vertical": "dating",
+      "source": "packaging",
+      "filename": "dating-packaging-qr.png",
+      "url": "https://enpassantapi.io/dating?source=packaging",
+      "path": "/qr-codes/dating-packaging-qr.png"
+    },
+    {
+      "vertical": "dating",
+      "source": "direct-mail",
+      "filename": "dating-direct-mail-qr.png",
+      "url": "https://enpassantapi.io/dating?source=direct-mail",
+      "path": "/qr-codes/dating-direct-mail-qr.png"
+    },
+    {
+      "vertical": "dating",
+      "source": "magazine-ad",
+      "filename": "dating-magazine-ad-qr.png",
+      "url": "https://enpassantapi.io/dating?source=magazine-ad",
+      "path": "/qr-codes/dating-magazine-ad-qr.png"
+    },
+    {
+      "vertical": "dating",
+      "source": "newspaper-ad",
+      "filename": "dating-newspaper-ad-qr.png",
+      "url": "https://enpassantapi.io/dating?source=newspaper-ad",
+      "path": "/qr-codes/dating-newspaper-ad-qr.png"
+    },
+    {
+      "vertical": "dating",
+      "source": "radio-spot",
+      "filename": "dating-radio-spot-qr.png",
+      "url": "https://enpassantapi.io/dating?source=radio-spot",
+      "path": "/qr-codes/dating-radio-spot-qr.png"
+    },
+    {
+      "vertical": "dating",
+      "source": "tv-spot",
+      "filename": "dating-tv-spot-qr.png",
+      "url": "https://enpassantapi.io/dating?source=tv-spot",
+      "path": "/qr-codes/dating-tv-spot-qr.png"
+    },
+    {
+      "vertical": "freelance",
+      "source": "poster",
+      "filename": "freelance-poster-qr.png",
+      "url": "https://enpassantapi.io/freelance?source=poster",
+      "path": "/qr-codes/freelance-poster-qr.png"
+    },
+    {
+      "vertical": "freelance",
+      "source": "flyer",
+      "filename": "freelance-flyer-qr.png",
+      "url": "https://enpassantapi.io/freelance?source=flyer",
+      "path": "/qr-codes/freelance-flyer-qr.png"
+    },
+    {
+      "vertical": "freelance",
+      "source": "business-card",
+      "filename": "freelance-business-card-qr.png",
+      "url": "https://enpassantapi.io/freelance?source=business-card",
+      "path": "/qr-codes/freelance-business-card-qr.png"
+    },
+    {
+      "vertical": "freelance",
+      "source": "billboard",
+      "filename": "freelance-billboard-qr.png",
+      "url": "https://enpassantapi.io/freelance?source=billboard",
+      "path": "/qr-codes/freelance-billboard-qr.png"
+    },
+    {
+      "vertical": "freelance",
+      "source": "subway",
+      "filename": "freelance-subway-qr.png",
+      "url": "https://enpassantapi.io/freelance?source=subway",
+      "path": "/qr-codes/freelance-subway-qr.png"
+    },
+    {
+      "vertical": "freelance",
+      "source": "bus-shelter",
+      "filename": "freelance-bus-shelter-qr.png",
+      "url": "https://enpassantapi.io/freelance?source=bus-shelter",
+      "path": "/qr-codes/freelance-bus-shelter-qr.png"
+    },
+    {
+      "vertical": "freelance",
+      "source": "event-booth",
+      "filename": "freelance-event-booth-qr.png",
+      "url": "https://enpassantapi.io/freelance?source=event-booth",
+      "path": "/qr-codes/freelance-event-booth-qr.png"
+    },
+    {
+      "vertical": "freelance",
+      "source": "handout",
+      "filename": "freelance-handout-qr.png",
+      "url": "https://enpassantapi.io/freelance?source=handout",
+      "path": "/qr-codes/freelance-handout-qr.png"
+    },
+    {
+      "vertical": "freelance",
+      "source": "sticker",
+      "filename": "freelance-sticker-qr.png",
+      "url": "https://enpassantapi.io/freelance?source=sticker",
+      "path": "/qr-codes/freelance-sticker-qr.png"
+    },
+    {
+      "vertical": "freelance",
+      "source": "postcard",
+      "filename": "freelance-postcard-qr.png",
+      "url": "https://enpassantapi.io/freelance?source=postcard",
+      "path": "/qr-codes/freelance-postcard-qr.png"
+    },
+    {
+      "vertical": "freelance",
+      "source": "banner",
+      "filename": "freelance-banner-qr.png",
+      "url": "https://enpassantapi.io/freelance?source=banner",
+      "path": "/qr-codes/freelance-banner-qr.png"
+    },
+    {
+      "vertical": "freelance",
+      "source": "window-display",
+      "filename": "freelance-window-display-qr.png",
+      "url": "https://enpassantapi.io/freelance?source=window-display",
+      "path": "/qr-codes/freelance-window-display-qr.png"
+    },
+    {
+      "vertical": "freelance",
+      "source": "table-tent",
+      "filename": "freelance-table-tent-qr.png",
+      "url": "https://enpassantapi.io/freelance?source=table-tent",
+      "path": "/qr-codes/freelance-table-tent-qr.png"
+    },
+    {
+      "vertical": "freelance",
+      "source": "receipt",
+      "filename": "freelance-receipt-qr.png",
+      "url": "https://enpassantapi.io/freelance?source=receipt",
+      "path": "/qr-codes/freelance-receipt-qr.png"
+    },
+    {
+      "vertical": "freelance",
+      "source": "packaging",
+      "filename": "freelance-packaging-qr.png",
+      "url": "https://enpassantapi.io/freelance?source=packaging",
+      "path": "/qr-codes/freelance-packaging-qr.png"
+    },
+    {
+      "vertical": "freelance",
+      "source": "direct-mail",
+      "filename": "freelance-direct-mail-qr.png",
+      "url": "https://enpassantapi.io/freelance?source=direct-mail",
+      "path": "/qr-codes/freelance-direct-mail-qr.png"
+    },
+    {
+      "vertical": "freelance",
+      "source": "magazine-ad",
+      "filename": "freelance-magazine-ad-qr.png",
+      "url": "https://enpassantapi.io/freelance?source=magazine-ad",
+      "path": "/qr-codes/freelance-magazine-ad-qr.png"
+    },
+    {
+      "vertical": "freelance",
+      "source": "newspaper-ad",
+      "filename": "freelance-newspaper-ad-qr.png",
+      "url": "https://enpassantapi.io/freelance?source=newspaper-ad",
+      "path": "/qr-codes/freelance-newspaper-ad-qr.png"
+    },
+    {
+      "vertical": "freelance",
+      "source": "radio-spot",
+      "filename": "freelance-radio-spot-qr.png",
+      "url": "https://enpassantapi.io/freelance?source=radio-spot",
+      "path": "/qr-codes/freelance-radio-spot-qr.png"
+    },
+    {
+      "vertical": "freelance",
+      "source": "tv-spot",
+      "filename": "freelance-tv-spot-qr.png",
+      "url": "https://enpassantapi.io/freelance?source=tv-spot",
+      "path": "/qr-codes/freelance-tv-spot-qr.png"
+    }
+  ]
+}
